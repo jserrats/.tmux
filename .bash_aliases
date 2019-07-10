@@ -1,2 +1,2 @@
-alias lsl='ls -l'
-alias lsa='ls -la'
+alias lsl='ls -lh'
+alias lsa='ls -lha'
