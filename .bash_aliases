@@ -6,7 +6,7 @@ alias cd..='cd ..'
 alias cd...='cd ../..'
 alias wmip='curl ipinfo.io' # obtain json with information about external ips
 alias r2help='r2 -q -c '\''?*~...'\'' -' # radare2 help command
-alias aliases='cat ~/.tmux/.bash_aliases' # display this file
+alias aliases='pygmentize ~/.tmux/.bash_aliases' # display this file
 function wcr() { find . -name "*.$1" | xargs wc -l | sort -nr ;} # sort all files in a directory recursively by the name of lines they contain, use the extension of the file as an argument
 function grepr() { grep -r -i "$1" * ;} # search recursively for files containing a word, ignoring case
 
