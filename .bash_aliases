@@ -12,3 +12,8 @@ alias catp='pygmentize'
 alias rmf='rm -rf'
 function wcr() { find . -name "*.$1" | xargs wc -l | sort -nr ;} # sort all files in a directory recursively by the name of lines they contain, use the extension of the file as an argument
 function grepr() { grep -r -i "$1" * ;} # search recursively for files containing a word, ignoring case
+
+# Importing aliases that are host-specific
+if [ -f "$HOME/.tmux/.local_aliases" ]; then
+   source "$HOME/.tmux/.local_aliases"
+fi
