@@ -6,7 +6,7 @@ alias cd..='cd ..'
 alias cd...='cd ../..'
 alias wmip='curl ipinfo.io' # obtain json with information about external ips
 alias r2help='r2 -q -c '\''?*~...'\'' -' # radare2 help command
-alias aliases='pygmentize ~/.tmux/.bash_aliases' # display this file
+alias aliases='cat ~/.tmux/.bash_aliases ~/.tmux/.local_aliases | pygmentize' # display aliases with syntax highlight 
 alias xc='xclip -selection c' # xclip aliases for fast copying to clipboar with a pipe
 alias catp='pygmentize'
 alias rmf='rm -rf'
@@ -17,3 +17,4 @@ function grepr() { grep -r -i "$1" * ;} # search recursively for files containin
 if [ -f "$HOME/.tmux/.local_aliases" ]; then
    source "$HOME/.tmux/.local_aliases"
 fi
+
