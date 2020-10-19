@@ -13,6 +13,13 @@ alias rmf='rm -rf'
 function wcr() { find . -name "*.$1" | xargs wc -l | sort -nr ;} # sort all files in a directory recursively by the name of lines they contain, use the extension of the file as an argument
 function grepr() { grep -r -i "$1" * ;} # search recursively for files containing a word, ignoring case
 
+# Shortcuts for testing telegram bots
+# telegram-getX SECRET_TOKEN
+function telegram-getupdates() { curl https://api.telegram.org/bot$1/getUpdates ;}
+function telegram-getme() { curl https://api.telegram.org/bot$1/getMe ;}
+# telegram-sendmessage SECRET_TOKEN CHAT_ID "message bla bla bla"
+function telegram-sendmessage() { curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "'$2'", "text": "'$3'", "disable_notification": true}' https://api.telegram.org/bot$1/sendMessage ;}
+
 # Importing aliases that are host-specific
 if [ -f "$HOME/.tmux/.local_aliases" ]; then
    source "$HOME/.tmux/.local_aliases"
