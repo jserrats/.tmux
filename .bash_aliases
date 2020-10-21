@@ -13,6 +13,9 @@ alias rmf='rm -rf'
 function wcr() { find . -name "*.$1" | xargs wc -l | sort -nr ;} # sort all files in a directory recursively by the name of lines they contain, use the extension of the file as an argument
 function grepr() { grep -r -i "$1" * ;} # search recursively for files containing a word, ignoring case
 
+# run a command and then pipe to ral to log (run and log). echo "test" | rnl test.txt
+function ral() { tee $1; history 1 | awk '{ $1=""; print $0 }' | cat - $1 > temp && mv temp $1 ;} 
+
 # Shortcuts for testing telegram bots
 # telegram-getX SECRET_TOKEN
 function telegram-getupdates() { curl https://api.telegram.org/bot$1/getUpdates ;}
@@ -24,4 +27,8 @@ function telegram-sendmessage() { curl -X POST -H 'Content-Type: application/jso
 if [ -f "$HOME/.tmux/.local_aliases" ]; then
    source "$HOME/.tmux/.local_aliases"
 fi
+
+# TODO: put this in a .bashrc extension. 
+# This forces tmux to save history after every command, so history is shared between views
+export PROMPT_COMMAND="history -a; history -n"
 
