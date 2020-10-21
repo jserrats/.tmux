@@ -12,6 +12,7 @@ alias catp='pygmentize'
 alias rmf='rm -rf'
 function wcr() { find . -name "*.$1" | xargs wc -l | sort -nr ;} # sort all files in a directory recursively by the name of lines they contain, use the extension of the file as an argument
 function grepr() { grep -r -i "$1" * ;} # search recursively for files containing a word, ignoring case
+function nmapss() { find /usr/share/nmap/scripts/ -type f -name "*$1*.nse" ;} # search nmap scripts
 
 # run a command and then pipe to ral to log (run and log). echo "test" | rnl test.txt
 function ral() { tee $1; history 1 | awk '{ $1=""; print $0 }' | cat - $1 > temp && mv temp $1 ;} 
