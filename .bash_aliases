@@ -15,7 +15,7 @@ function grepr() { grep -r -i "$1" * ;} # search recursively for files containin
 function nmapss() { find /usr/share/nmap/scripts/ -type f -name "*$1*.nse" ;} # search nmap scripts
 
 # run a command and then pipe to ral to log (run and log). echo "test" | rnl test.txt
-function ral() { tee $1; history 1 | awk '{ $1=""; print $0 }' | cat - $1 > temp && mv temp $1 ;} 
+function log() { tee $1; history 1 | awk '{ $1=""; print $0 }' | cat - $1 > temp && mv temp $1 ;} 
 
 # Shortcuts for testing telegram bots
 # telegram-getX SECRET_TOKEN
