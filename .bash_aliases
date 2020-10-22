@@ -10,6 +10,7 @@ alias aliases='cat ~/.tmux/.bash_aliases ~/.tmux/.local_aliases | pygmentize' # 
 alias xc='xclip -selection c' # xclip aliases for fast copying to clipboar with a pipe
 alias catp='pygmentize'
 alias rmf='rm -rf'
+alias less='less -r'
 function wcr() { find . -name "*.$1" | xargs wc -l | sort -nr ;} # sort all files in a directory recursively by the name of lines they contain, use the extension of the file as an argument
 function grepr() { grep -r -i "$1" * ;} # search recursively for files containing a word, ignoring case
 function nmapss() { find /usr/share/nmap/scripts/ -type f -name "*$1*.nse" ;} # search nmap scripts
