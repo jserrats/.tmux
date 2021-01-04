@@ -11,10 +11,13 @@ alias xc='xclip -selection c' # xclip aliases for fast copying to clipboar with 
 alias catp='pygmentize'
 alias rmf='rm -rf'
 alias less='less -r'
+alias py2env='source ~/code/py2env/bin/activate'
+alias please='sudo !!' # sounds good, doesnt work
+
 function wcr() { find . -name "*.$1" | xargs wc -l | sort -nr ;} # sort all files in a directory recursively by the name of lines they contain, use the extension of the file as an argument
 function grepr() { grep -r -i "$1" * ;} # search recursively for files containing a word, ignoring case
 function nmapss() { find /usr/share/nmap/scripts/ -type f -name "*$1*.nse" ;} # search nmap scripts
-
+function b64d() { echo "$1" | base64 -d | hexdump -C ;}
 # run a command and then pipe to ral to log (run and log). echo "test" | rnl test.txt
 function log() { tee $1; echo -n "$">tmp; history 1 | awk '{ $1=""; print $0 }' | cat - $1 >> tmp && mv tmp $1 ;} 
 
@@ -32,5 +35,5 @@ fi
 
 # TODO: put this in a .bashrc extension. 
 # This forces tmux to save history after every command, so history is shared between views
-export PROMPT_COMMAND="history -a; history -n"
+trap "history -a; history -n" EXIT
 
