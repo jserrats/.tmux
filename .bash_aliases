@@ -7,12 +7,12 @@ alias cd...='cd ../..'
 alias wmip='curl ipinfo.io' # obtain json with information about external ips
 alias r2help='r2 -q -c '\''?*~...'\'' -' # radare2 help command
 alias aliases='cat ~/.tmux/.bash_aliases ~/.tmux/.local_aliases | pygmentize' # display aliases with syntax highlight 
-alias xc='xclip -selection c' # xclip aliases for fast copying to clipboar with a pipe
+alias xc='tr -d '\n' | xclip -selection c' # xclip aliases for fast copying to clipboar with a pipe
 alias catp='pygmentize'
 alias rmf='rm -rf'
 alias less='less -r'
 alias py2env='source ~/code/py2env/bin/activate'
-alias please='sudo !!' # sounds good, doesnt work
+alias please='sudo $(fc -ln -1)'
 
 function wcr() { find . -name "*.$1" | xargs wc -l | sort -nr ;} # sort all files in a directory recursively by the name of lines they contain, use the extension of the file as an argument
 function grepr() { grep -r -i "$1" * ;} # search recursively for files containing a word, ignoring case
