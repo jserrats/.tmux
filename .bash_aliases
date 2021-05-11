@@ -27,7 +27,7 @@ function log() { tee $1; echo -n "$">tmp; history 1 | awk '{ $1=""; print $0 }' 
 function telegram-getupdates() { curl https://api.telegram.org/bot$1/getUpdates ;}
 function telegram-getme() { curl https://api.telegram.org/bot$1/getMe ;}
 # telegram-sendmessage SECRET_TOKEN CHAT_ID "message bla bla bla"
-function telegram-sendmessage() { curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "'$2'", "text": "'$3'", "disable_notification": true}' https://api.telegram.org/bot$1/sendMessage ;}
+function telegram-sendmessage() { echo $3; options='{"chat_id":"'$2'", "text":"'${3}'"}'; echo $options; curl -X POST -H 'Content-Type: application/json' -d "$options" https://api.telegram.org/bot$1/sendMessage ;}
 
 # Importing aliases that are host-specific
 if [ -f "$HOME/.tmux/.local_aliases" ]; then
