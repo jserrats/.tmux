@@ -14,6 +14,7 @@ alias less='less -r'
 alias py2env='source ~/code/py2env/bin/activate'
 alias please='sudo $(fc -ln -1)'
 alias ssh-config='cat ~/.ssh/config'
+alias parrot='curl parrot.live'
 
 function wcr() { find . -name "*.$1" | xargs wc -l | sort -nr ;} # sort all files in a directory recursively by the name of lines they contain, use the extension of the file as an argument
 function grepr() { grep -r -i "$1" * ;} # search recursively for files containing a word, ignoring case
